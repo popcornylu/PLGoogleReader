@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B219394313AAFA3B00E753DA /* unread.png in Resources */ = {isa = PBXBuildFile; fileRef = B219394213AAFA3B00E753DA /* unread.png */; };
+		B219394513AAFB7900E753DA /* read.png in Resources */ = {isa = PBXBuildFile; fileRef = B219394413AAFB7900E753DA /* read.png */; };
+		B262E77013A0A4BD006CCD7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262E76F13A0A4BD006CCD7E /* UIKit.framework */; };
+		B262E77213A0A4BD006CCD7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262E77113A0A4BD006CCD7E /* Foundation.framework */; };
+		B262E77413A0A4BD006CCD7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262E77313A0A4BD006CCD7E /* CoreGraphics.framework */; };
+		B274C6F913A85798002814CD /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B274C6F813A85798002814CD /* GTMNSString+HTML.m */; };
+		B2BA2E8813A5F69000CE1ED2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E7D13A5F69000CE1ED2 /* NSObject+SBJSON.m */; };
+		B2BA2E8913A5F69000CE1ED2 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E7F13A5F69000CE1ED2 /* NSString+SBJSON.m */; };
+		B2BA2E8A13A5F69000CE1ED2 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E8113A5F69000CE1ED2 /* SBJSON.m */; };
+		B2BA2E8B13A5F69000CE1ED2 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E8313A5F69000CE1ED2 /* SBJsonBase.m */; };
+		B2BA2E8C13A5F69000CE1ED2 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E8513A5F69000CE1ED2 /* SBJsonParser.m */; };
+		B2BA2E8D13A5F69000CE1ED2 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E8713A5F69000CE1ED2 /* SBJsonWriter.m */; };
+		B2BA2E9813A6031500CE1ED2 /* PLGoogleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E9113A6031500CE1ED2 /* PLGoogleReader.m */; };
+		B2BA2E9913A6031500CE1ED2 /* PLGRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E9313A6031500CE1ED2 /* PLGRRequest.m */; };
+		B2BA2E9A13A6031500CE1ED2 /* PLGRSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E9513A6031500CE1ED2 /* PLGRSubscription.m */; };
+		B2BA2E9B13A6031500CE1ED2 /* PLGRSubscriptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BA2E9713A6031500CE1ED2 /* PLGRSubscriptionItem.m */; };
+		B2BB5F5613A10C2D007DDE4A /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BB5F4E13A10C2D007DDE4A /* GTMHTTPFetcher.m */; };
+		B2BB5F5713A10C2D007DDE4A /* GTMOAuthAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BB5F5013A10C2D007DDE4A /* GTMOAuthAuthentication.m */; };
+		B2BB5F5813A10C2D007DDE4A /* GTMOAuthSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BB5F5213A10C2D007DDE4A /* GTMOAuthSignIn.m */; };
+		B2BB5F5913A10C2D007DDE4A /* GTMOAuthViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BB5F5413A10C2D007DDE4A /* GTMOAuthViewControllerTouch.m */; };
+		B2BB5F5A13A10C2D007DDE4A /* GTMOAuthViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2BB5F5513A10C2D007DDE4A /* GTMOAuthViewTouch.xib */; };
+		B2BB5F5E13A10E55007DDE4A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB5F5D13A10E55007DDE4A /* Security.framework */; };
+		B2CB3BF413A1E0A7006EE384 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2CB3BF313A1E0A7006EE384 /* SystemConfiguration.framework */; };
+		B2EF22F513B30D1900AE7714 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF22E113B30D1900AE7714 /* CategoryViewController.m */; };
+		B2EF22F613B30D1900AE7714 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF22E213B30D1900AE7714 /* InfoPlist.strings */; };
+		B2EF22F713B30D1900AE7714 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2EF22E413B30D1900AE7714 /* MainWindow.xib */; };
+		B2EF22F813B30D1900AE7714 /* MyGoogleReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2EF22E613B30D1900AE7714 /* MyGoogleReaderViewController.xib */; };
+		B2EF22F913B30D1900AE7714 /* FeedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF22E913B30D1900AE7714 /* FeedEntry.m */; };
+		B2EF22FA13B30D1900AE7714 /* FeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF22EB13B30D1900AE7714 /* FeedParser.m */; };
+		B2EF22FB13B30D1900AE7714 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF22ED13B30D1900AE7714 /* FeedViewController.m */; };
+		B2EF22FC13B30D1900AE7714 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF22EE13B30D1900AE7714 /* main.m */; };
+		B2EF22FD13B30D1900AE7714 /* MyGoogleReaderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF22F113B30D1900AE7714 /* MyGoogleReaderAppDelegate.m */; };
+		B2EF22FE13B30D1900AE7714 /* MyGoogleReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF22F313B30D1900AE7714 /* MyGoogleReaderViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B219394213AAFA3B00E753DA /* unread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unread.png; sourceTree = "<group>"; };
+		B219394413AAFB7900E753DA /* read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read.png; sourceTree = "<group>"; };
+		B262E76B13A0A4BD006CCD7E /* PLGoogleReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLGoogleReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B262E76F13A0A4BD006CCD7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B262E77113A0A4BD006CCD7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B262E77313A0A4BD006CCD7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B274C6F613A85798002814CD /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		B274C6F713A85798002814CD /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		B274C6F813A85798002814CD /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		B2BA2E7B13A5F69000CE1ED2 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		B2BA2E7C13A5F69000CE1ED2 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		B2BA2E7D13A5F69000CE1ED2 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		B2BA2E7E13A5F69000CE1ED2 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		B2BA2E7F13A5F69000CE1ED2 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		B2BA2E8013A5F69000CE1ED2 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		B2BA2E8113A5F69000CE1ED2 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		B2BA2E8213A5F69000CE1ED2 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		B2BA2E8313A5F69000CE1ED2 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		B2BA2E8413A5F69000CE1ED2 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		B2BA2E8513A5F69000CE1ED2 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		B2BA2E8613A5F69000CE1ED2 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		B2BA2E8713A5F69000CE1ED2 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		B2BA2E9013A6031500CE1ED2 /* PLGoogleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLGoogleReader.h; sourceTree = "<group>"; };
+		B2BA2E9113A6031500CE1ED2 /* PLGoogleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLGoogleReader.m; sourceTree = "<group>"; };
+		B2BA2E9213A6031500CE1ED2 /* PLGRRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLGRRequest.h; sourceTree = "<group>"; };
+		B2BA2E9313A6031500CE1ED2 /* PLGRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLGRRequest.m; sourceTree = "<group>"; };
+		B2BA2E9413A6031500CE1ED2 /* PLGRSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PLGRSubscription.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B2BA2E9513A6031500CE1ED2 /* PLGRSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PLGRSubscription.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2BA2E9613A6031500CE1ED2 /* PLGRSubscriptionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PLGRSubscriptionItem.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B2BA2E9713A6031500CE1ED2 /* PLGRSubscriptionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PLGRSubscriptionItem.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2BA2E9C13A6035800CE1ED2 /* GoogleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GoogleReader.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B2BB5F4D13A10C2D007DDE4A /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcher.h; sourceTree = "<group>"; };
+		B2BB5F4E13A10C2D007DDE4A /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcher.m; sourceTree = "<group>"; };
+		B2BB5F4F13A10C2D007DDE4A /* GTMOAuthAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuthAuthentication.h; sourceTree = "<group>"; };
+		B2BB5F5013A10C2D007DDE4A /* GTMOAuthAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuthAuthentication.m; sourceTree = "<group>"; };
+		B2BB5F5113A10C2D007DDE4A /* GTMOAuthSignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuthSignIn.h; sourceTree = "<group>"; };
+		B2BB5F5213A10C2D007DDE4A /* GTMOAuthSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuthSignIn.m; sourceTree = "<group>"; };
+		B2BB5F5313A10C2D007DDE4A /* GTMOAuthViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuthViewControllerTouch.h; sourceTree = "<group>"; };
+		B2BB5F5413A10C2D007DDE4A /* GTMOAuthViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuthViewControllerTouch.m; sourceTree = "<group>"; };
+		B2BB5F5513A10C2D007DDE4A /* GTMOAuthViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTMOAuthViewTouch.xib; sourceTree = "<group>"; };
+		B2BB5F5D13A10E55007DDE4A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B2CB3BF313A1E0A7006EE384 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B2EF22E013B30D1900AE7714 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CategoryViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B2EF22E113B30D1900AE7714 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CategoryViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2EF22E313B30D1900AE7714 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2EF22E513B30D1900AE7714 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		B2EF22E713B30D1900AE7714 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyGoogleReaderViewController.xib; sourceTree = "<group>"; };
+		B2EF22E813B30D1900AE7714 /* FeedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FeedEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B2EF22E913B30D1900AE7714 /* FeedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FeedEntry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2EF22EA13B30D1900AE7714 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedParser.h; sourceTree = "<group>"; };
+		B2EF22EB13B30D1900AE7714 /* FeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedParser.m; sourceTree = "<group>"; };
+		B2EF22EC13B30D1900AE7714 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		B2EF22ED13B30D1900AE7714 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FeedViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2EF22EE13B30D1900AE7714 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2EF22F013B30D1900AE7714 /* MyGoogleReaderAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MyGoogleReaderAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B2EF22F113B30D1900AE7714 /* MyGoogleReaderAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MyGoogleReaderAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2EF22F213B30D1900AE7714 /* MyGoogleReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MyGoogleReaderViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B2EF22F313B30D1900AE7714 /* MyGoogleReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MyGoogleReaderViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B2EF231013B3103400AE7714 /* PLGoogleReader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PLGoogleReader-Prefix.pch"; sourceTree = "<group>"; };
+		B2EF231313B310E000AE7714 /* PLGoogleReader-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PLGoogleReader-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B262E76813A0A4BD006CCD7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2CB3BF413A1E0A7006EE384 /* SystemConfiguration.framework in Frameworks */,
+				B2BB5F5E13A10E55007DDE4A /* Security.framework in Frameworks */,
+				B262E77013A0A4BD006CCD7E /* UIKit.framework in Frameworks */,
+				B262E77213A0A4BD006CCD7E /* Foundation.framework in Frameworks */,
+				B262E77413A0A4BD006CCD7E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B219394013AAFA3A00E753DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B219394113AAFA3B00E753DA /* images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B219394113AAFA3B00E753DA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B219394413AAFB7900E753DA /* read.png */,
+				B219394213AAFA3B00E753DA /* unread.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		B262E76013A0A4BC006CCD7E = {
+			isa = PBXGroup;
+			children = (
+				B2EF231313B310E000AE7714 /* PLGoogleReader-Info.plist */,
+				B2EF231013B3103400AE7714 /* PLGoogleReader-Prefix.pch */,
+				B2EF22DF13B30D1900AE7714 /* Example */,
+				B2BA2E8F13A6031500CE1ED2 /* PLGoogleReader */,
+				B2BB5F4B13A10C2D007DDE4A /* External */,
+				B219394013AAFA3A00E753DA /* Resources */,
+				B262E76E13A0A4BD006CCD7E /* Frameworks */,
+				B262E76C13A0A4BD006CCD7E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B262E76C13A0A4BD006CCD7E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B262E76B13A0A4BD006CCD7E /* PLGoogleReader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B262E76E13A0A4BD006CCD7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B262E76F13A0A4BD006CCD7E /* UIKit.framework */,
+				B262E77113A0A4BD006CCD7E /* Foundation.framework */,
+				B262E77313A0A4BD006CCD7E /* CoreGraphics.framework */,
+				B2CB3BF313A1E0A7006EE384 /* SystemConfiguration.framework */,
+				B2BB5F5D13A10E55007DDE4A /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B274C6F513A85798002814CD /* gtm */ = {
+			isa = PBXGroup;
+			children = (
+				B274C6F613A85798002814CD /* GTMDefines.h */,
+				B274C6F713A85798002814CD /* GTMNSString+HTML.h */,
+				B274C6F813A85798002814CD /* GTMNSString+HTML.m */,
+			);
+			path = gtm;
+			sourceTree = "<group>";
+		};
+		B2BA2E7A13A5F69000CE1ED2 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B2BA2E7B13A5F69000CE1ED2 /* JSON.h */,
+				B2BA2E7C13A5F69000CE1ED2 /* NSObject+SBJSON.h */,
+				B2BA2E7D13A5F69000CE1ED2 /* NSObject+SBJSON.m */,
+				B2BA2E7E13A5F69000CE1ED2 /* NSString+SBJSON.h */,
+				B2BA2E7F13A5F69000CE1ED2 /* NSString+SBJSON.m */,
+				B2BA2E8013A5F69000CE1ED2 /* SBJSON.h */,
+				B2BA2E8113A5F69000CE1ED2 /* SBJSON.m */,
+				B2BA2E8213A5F69000CE1ED2 /* SBJsonBase.h */,
+				B2BA2E8313A5F69000CE1ED2 /* SBJsonBase.m */,
+				B2BA2E8413A5F69000CE1ED2 /* SBJsonParser.h */,
+				B2BA2E8513A5F69000CE1ED2 /* SBJsonParser.m */,
+				B2BA2E8613A5F69000CE1ED2 /* SBJsonWriter.h */,
+				B2BA2E8713A5F69000CE1ED2 /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		B2BA2E8F13A6031500CE1ED2 /* PLGoogleReader */ = {
+			isa = PBXGroup;
+			children = (
+				B2BA2E9C13A6035800CE1ED2 /* GoogleReader.h */,
+				B2BA2E9013A6031500CE1ED2 /* PLGoogleReader.h */,
+				B2BA2E9113A6031500CE1ED2 /* PLGoogleReader.m */,
+				B2BA2E9213A6031500CE1ED2 /* PLGRRequest.h */,
+				B2BA2E9313A6031500CE1ED2 /* PLGRRequest.m */,
+				B2BA2E9413A6031500CE1ED2 /* PLGRSubscription.h */,
+				B2BA2E9513A6031500CE1ED2 /* PLGRSubscription.m */,
+				B2BA2E9613A6031500CE1ED2 /* PLGRSubscriptionItem.h */,
+				B2BA2E9713A6031500CE1ED2 /* PLGRSubscriptionItem.m */,
+			);
+			path = PLGoogleReader;
+			sourceTree = "<group>";
+		};
+		B2BB5F4B13A10C2D007DDE4A /* External */ = {
+			isa = PBXGroup;
+			children = (
+				B274C6F513A85798002814CD /* gtm */,
+				B2BA2E7A13A5F69000CE1ED2 /* JSON */,
+				B2BB5F4C13A10C2D007DDE4A /* gtm-oauth */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		B2BB5F4C13A10C2D007DDE4A /* gtm-oauth */ = {
+			isa = PBXGroup;
+			children = (
+				B2BB5F4D13A10C2D007DDE4A /* GTMHTTPFetcher.h */,
+				B2BB5F4E13A10C2D007DDE4A /* GTMHTTPFetcher.m */,
+				B2BB5F4F13A10C2D007DDE4A /* GTMOAuthAuthentication.h */,
+				B2BB5F5013A10C2D007DDE4A /* GTMOAuthAuthentication.m */,
+				B2BB5F5113A10C2D007DDE4A /* GTMOAuthSignIn.h */,
+				B2BB5F5213A10C2D007DDE4A /* GTMOAuthSignIn.m */,
+				B2BB5F5313A10C2D007DDE4A /* GTMOAuthViewControllerTouch.h */,
+				B2BB5F5413A10C2D007DDE4A /* GTMOAuthViewControllerTouch.m */,
+				B2BB5F5513A10C2D007DDE4A /* GTMOAuthViewTouch.xib */,
+			);
+			path = "gtm-oauth";
+			sourceTree = "<group>";
+		};
+		B2EF22DF13B30D1900AE7714 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF22E013B30D1900AE7714 /* CategoryViewController.h */,
+				B2EF22E113B30D1900AE7714 /* CategoryViewController.m */,
+				B2EF22E213B30D1900AE7714 /* InfoPlist.strings */,
+				B2EF22E413B30D1900AE7714 /* MainWindow.xib */,
+				B2EF22E613B30D1900AE7714 /* MyGoogleReaderViewController.xib */,
+				B2EF22E813B30D1900AE7714 /* FeedEntry.h */,
+				B2EF22E913B30D1900AE7714 /* FeedEntry.m */,
+				B2EF22EA13B30D1900AE7714 /* FeedParser.h */,
+				B2EF22EB13B30D1900AE7714 /* FeedParser.m */,
+				B2EF22EC13B30D1900AE7714 /* FeedViewController.h */,
+				B2EF22ED13B30D1900AE7714 /* FeedViewController.m */,
+				B2EF22EE13B30D1900AE7714 /* main.m */,
+				B2EF22F013B30D1900AE7714 /* MyGoogleReaderAppDelegate.h */,
+				B2EF22F113B30D1900AE7714 /* MyGoogleReaderAppDelegate.m */,
+				B2EF22F213B30D1900AE7714 /* MyGoogleReaderViewController.h */,
+				B2EF22F313B30D1900AE7714 /* MyGoogleReaderViewController.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B262E76A13A0A4BD006CCD7E /* PLGoogleReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B262E78C13A0A4BD006CCD7E /* Build configuration list for PBXNativeTarget "PLGoogleReader" */;
+			buildPhases = (
+				B262E76713A0A4BD006CCD7E /* Sources */,
+				B262E76813A0A4BD006CCD7E /* Frameworks */,
+				B262E76913A0A4BD006CCD7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PLGoogleReader;
+			productName = MyGoogleReader;
+			productReference = B262E76B13A0A4BD006CCD7E /* PLGoogleReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B262E76213A0A4BC006CCD7E /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = B262E76513A0A4BC006CCD7E /* Build configuration list for PBXProject "PLGoogleReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B262E76013A0A4BC006CCD7E;
+			productRefGroup = B262E76C13A0A4BD006CCD7E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B262E76A13A0A4BD006CCD7E /* PLGoogleReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B262E76913A0A4BD006CCD7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BB5F5A13A10C2D007DDE4A /* GTMOAuthViewTouch.xib in Resources */,
+				B219394313AAFA3B00E753DA /* unread.png in Resources */,
+				B219394513AAFB7900E753DA /* read.png in Resources */,
+				B2EF22F613B30D1900AE7714 /* InfoPlist.strings in Resources */,
+				B2EF22F713B30D1900AE7714 /* MainWindow.xib in Resources */,
+				B2EF22F813B30D1900AE7714 /* MyGoogleReaderViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B262E76713A0A4BD006CCD7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BB5F5613A10C2D007DDE4A /* GTMHTTPFetcher.m in Sources */,
+				B2BB5F5713A10C2D007DDE4A /* GTMOAuthAuthentication.m in Sources */,
+				B2BB5F5813A10C2D007DDE4A /* GTMOAuthSignIn.m in Sources */,
+				B2BB5F5913A10C2D007DDE4A /* GTMOAuthViewControllerTouch.m in Sources */,
+				B2BA2E8813A5F69000CE1ED2 /* NSObject+SBJSON.m in Sources */,
+				B2BA2E8913A5F69000CE1ED2 /* NSString+SBJSON.m in Sources */,
+				B2BA2E8A13A5F69000CE1ED2 /* SBJSON.m in Sources */,
+				B2BA2E8B13A5F69000CE1ED2 /* SBJsonBase.m in Sources */,
+				B2BA2E8C13A5F69000CE1ED2 /* SBJsonParser.m in Sources */,
+				B2BA2E8D13A5F69000CE1ED2 /* SBJsonWriter.m in Sources */,
+				B2BA2E9813A6031500CE1ED2 /* PLGoogleReader.m in Sources */,
+				B2BA2E9913A6031500CE1ED2 /* PLGRRequest.m in Sources */,
+				B2BA2E9A13A6031500CE1ED2 /* PLGRSubscription.m in Sources */,
+				B2BA2E9B13A6031500CE1ED2 /* PLGRSubscriptionItem.m in Sources */,
+				B274C6F913A85798002814CD /* GTMNSString+HTML.m in Sources */,
+				B2EF22F513B30D1900AE7714 /* CategoryViewController.m in Sources */,
+				B2EF22F913B30D1900AE7714 /* FeedEntry.m in Sources */,
+				B2EF22FA13B30D1900AE7714 /* FeedParser.m in Sources */,
+				B2EF22FB13B30D1900AE7714 /* FeedViewController.m in Sources */,
+				B2EF22FC13B30D1900AE7714 /* main.m in Sources */,
+				B2EF22FD13B30D1900AE7714 /* MyGoogleReaderAppDelegate.m in Sources */,
+				B2EF22FE13B30D1900AE7714 /* MyGoogleReaderViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B2EF22E213B30D1900AE7714 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2EF22E313B30D1900AE7714 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B2EF22E413B30D1900AE7714 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2EF22E513B30D1900AE7714 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		B2EF22E613B30D1900AE7714 /* MyGoogleReaderViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2EF22E713B30D1900AE7714 /* en */,
+			);
+			name = MyGoogleReaderViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B262E78A13A0A4BD006CCD7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B262E78B13A0A4BD006CCD7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		B262E78D13A0A4BD006CCD7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PLGoogleReader-Prefix.pch";
+				INFOPLIST_FILE = "PLGoogleReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = PLGoogleReader;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B262E78E13A0A4BD006CCD7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PLGoogleReader-Prefix.pch";
+				INFOPLIST_FILE = "PLGoogleReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = PLGoogleReader;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B262E76513A0A4BC006CCD7E /* Build configuration list for PBXProject "PLGoogleReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B262E78A13A0A4BD006CCD7E /* Debug */,
+				B262E78B13A0A4BD006CCD7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B262E78C13A0A4BD006CCD7E /* Build configuration list for PBXNativeTarget "PLGoogleReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B262E78D13A0A4BD006CCD7E /* Debug */,
+				B262E78E13A0A4BD006CCD7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B262E76213A0A4BC006CCD7E /* Project object */;
+}
