@@ -1,12 +1,10 @@
 # PLGoogleReader
 
----
 ## Introduction
 PLGoogleReader is an iOS library of [Google Reader](http://www.google.reader/).
 Since now, google reader has not announced offical API. The implementation is based on the reverse-engineering result shared by [pyrfeed](http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI).
 For login, PLGoogleReader use [gtm-auth](http://code.google.com/p/gtm-oauth/) to implement the oauth authetication.	
 
----
 ## Add PLGoogleReader to your project
 
 **Step1. Add frameworks used by PLGoogleReader**
@@ -26,7 +24,6 @@ Copy all files in */Enternals* to your project
 
 Copy all the files in the */PLGoogleReader* to your project.
 
----
 ## How to use.
 
 Actually, you can easilty look into the example files to know how to use this library. Here, I briefly
@@ -112,14 +109,12 @@ On complete, parse the JSON
 ### Mark as read or mark all as read.
 We have not implemented a high level API for this requirement. But you can use `-[PLGoogleReader requestWithAPIPath:withParams:withHttpMethod:withDelegate]` to archive it though.
 
----
 ## External Libraries
 
 - [json-framework](http://code.google.com/p/json-framework/) - json parser
 - [gtm-oauth](http://code.google.com/p/gtm-oauth/) - use it for oauth implemention
 - [gtm](http://code.google.com/p/google-toolbox-for-mac/) - use the NSString+HTML addition.
 
----
 ## Reference
 The project reference the following articles. 
 
@@ -128,10 +123,8 @@ The project reference the following articles.
 - <http://blog.martindoms.com/2009/10/16/using-the-google-reader-api-part-2/>
 - <http://blog.martindoms.com/2010/01/20/using-the-google-reader-api-part-3/>
 
----
 ## License
 PLGoogleReader is under LGPL license. 
 
----
 ## Contact me
 If you encounter any problem, feel free to mail me. <popcorny@gmail.com>
