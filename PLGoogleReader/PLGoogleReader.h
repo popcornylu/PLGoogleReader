@@ -9,18 +9,32 @@
 #import <Foundation/Foundation.h>
 
 #import "PLGRRequest.h"
+#import "PLGRClientLogin.h"
 
 @class GTMOAuthAuthentication;
 @class PLGRSubscription;
 
 
+typedef enum
+{
+    PLGoogleReaderAuthTypeUnknown,
+    PLGoogleReaderAuthTypeNormal,   //login by email/password
+    PLGoogleReaderAuthTypeOAuth     //login by oauth
+}   PLGoogleReaderAuthType;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 @protocol PLGoogleReaderSignInDelegate;
 @interface PLGoogleReader : NSObject {
-    GTMOAuthAuthentication*             _auth;
+    PLGoogleReaderAuthType              _authType;
+    
+    PLGRClientLogin*                    _clientLogin;    
+    GTMOAuthAuthentication*             _oauth;
+    
     id<PLGoogleReaderSignInDelegate>    _delegate;
     PLGRSubscription*                   _subscription;
 }
+
+@property (nonatomic) PLGoogleReaderAuthType authType;
 
 /**
  * The singleton google reader. 
@@ -29,6 +43,10 @@
 + (PLGoogleReader*)defaultGoogleReader;
 
 - (UIViewController*)viewControllerForSignIn:(id<PLGoogleReaderSignInDelegate>)delegate;
+
+- (void) signInByEmail:(NSString*)email
+              password:(NSString*)password
+              delegate:(id<PLGoogleReaderSignInDelegate>)delegate;
 
 - (void) signOut;
 
@@ -64,11 +82,11 @@
 - (PLGRSubscription*)subscription;
 
 /**
- * Authentication relative
+ * oauth relative
  */
 - (NSString*) accessToken;
 - (NSString*) userEmail;
-- (GTMOAuthAuthentication*)auth;
+- (GTMOAuthAuthentication*)oauth;
 
 @end
 

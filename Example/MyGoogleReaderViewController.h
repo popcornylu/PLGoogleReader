@@ -16,15 +16,20 @@
     UILabel *lbEmail;
     UILabel *lbAccessToken;
     UIButton *btnNav;
-    UIButton *btnSignInOut;
+    UIButton *btnSignInNormal;
+    UIButton *btnSignInOauth;
+    UIButton *btnSignOut;
+    UIButton *btnReload;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *lbEmail;
 @property (nonatomic, retain) IBOutlet UILabel *lbAccessToken;
 @property (nonatomic, retain) IBOutlet UIButton *btnNav;
-@property (nonatomic, retain) IBOutlet UIButton *btnSignInOut;
+@property (nonatomic, retain) IBOutlet UIButton *btnSignInNormal;
+@property (nonatomic, retain) IBOutlet UIButton *btnSignInOauth;
+@property (nonatomic, retain) IBOutlet UIButton *btnSignOut;
+@property (nonatomic, retain) IBOutlet UIButton *btnReload;
 
-- (IBAction)signInOut:(id)sender;
 - (IBAction)reload:(id)sender;
 - (IBAction)navigate:(id)sender;
 

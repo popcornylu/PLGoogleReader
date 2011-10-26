@@ -183,7 +183,7 @@ enum
     }            
     
     // The cell type
-    if(indexPath.section == 1 && [item isLabel])
+    if(indexPath.section == 1 && ![item isIndividualFeed])
     {            
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;                            
     }
@@ -221,7 +221,7 @@ enum
     if(indexPath.section == 1)
     {            
         item = [_items objectAtIndex:indexPath.row];
-        if([item isLabel])
+        if(![item isIndividualFeed])
         {
             showCategory = YES;
         }        

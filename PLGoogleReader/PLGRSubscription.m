@@ -51,7 +51,7 @@ static NSString* kPLGRAPIToken              =  @"/token";
     [_lastUpdated release];
     [_arSubscriptions release];
     [_arTags release];
-    [_arSortings release];
+    [_arStreamPrefs release];
     [_arUnreadCount release];
 
     [super dealloc];
@@ -193,8 +193,8 @@ static NSString* kPLGRAPIToken              =  @"/token";
     }   
     
     // Keep the result
-    [_arSortings release];
-    _arSortings = [items retain];        
+    [_arStreamPrefs release];
+    _arStreamPrefs = [items retain];        
 }
 
 - (void)handleUnreadCountRequest:(id)resultData
@@ -303,7 +303,7 @@ static NSString* kPLGRAPIToken              =  @"/token";
     // Check if all the list is loaded.
     return (_arSubscriptions &&
             _arTags &&
-            _arSortings &&
+            _arStreamPrefs &&
             _arUnreadCount);
 }
 
@@ -354,8 +354,8 @@ static NSString* kPLGRAPIToken              =  @"/token";
     _arSubscriptions = nil;         
     [_arTags release];
     _arTags = nil;     
-    [_arSortings release];
-    _arSortings = nil;  
+    [_arStreamPrefs release];
+    _arStreamPrefs = nil;  
     [_arUnreadCount release];
     _arUnreadCount = nil;
 
@@ -420,7 +420,7 @@ static NSString* kPLGRAPIToken              =  @"/token";
     return [[_arTags copy] autorelease];
 }
 
-- (NSArray*) sortedListForTag:(NSString*)streamid
+- (NSArray*) sortedListForTagOld:(NSString*)streamid
 {
     PLGRStreamPref* streamPref = nil;
     NSUInteger itemCount = 0;
@@ -432,7 +432,7 @@ static NSString* kPLGRAPIToken              =  @"/token";
     }
     
     // iterate the sorting
-    for (streamPref in _arSortings) {
+    for (streamPref in _arStreamPrefs) {
         if([streamPref.streamid isEqualToString:streamid])
         {
             break;
@@ -500,6 +500,117 @@ static NSString* kPLGRAPIToken              =  @"/token";
     }
     
     return sortedList;
+}
+
+- (NSArray*) listForRoot
+{
+    NSMutableSet* tagSet = [NSMutableSet set];
+    NSMutableArray* feedList = [NSMutableArray arrayWithCapacity:0];    
+    NSMutableArray* list = [NSMutableArray arrayWithCapacity:0];
+    
+    
+    // iterate the subscription to get the root items and root tags
+    for(PLGRSubscriptionItem* item in _arSubscriptions)
+    {
+        if([item.labels count] == 0)
+        {
+            [feedList addObject:item];
+        }
+        else
+        {
+            for(NSString* tag in item.labels)
+            {
+                if(![tagSet containsObject:tag])
+                {
+                    [tagSet addObject:tag];
+                }
+            }
+        }        
+    }    
+    
+    // Append the tags.
+    for(PLGRSubscriptionItem* tagItem in _arTags)
+    {
+        if([tagSet containsObject:tagItem.streamid])
+        {
+            [list addObject:tagItem];           
+        }
+    }
+    
+    // Append the feed list at the tail.
+    [list addObjectsFromArray:feedList];
+    
+    return [NSArray arrayWithArray:list];                    
+}
+
+- (NSArray*) listForTag:(NSString*)streamid
+{
+    NSMutableArray* list = [NSMutableArray arrayWithCapacity:0];
+    
+    // iterate the subscription to get the items which belong to the streamid
+    for(PLGRSubscriptionItem* item in _arSubscriptions)
+    {
+        for(NSString* tag in item.labels)
+        {
+            if([tag isEqualToString:streamid])
+            {
+                [list addObject:item];
+            }
+        }
+    }    
+    
+    return [NSArray arrayWithArray:list]; 
+}
+
+- (NSArray*) sortedListForTag:(NSString*)streamid
+{   
+    NSArray* list = (streamid == nil) ? 
+                    [self listForRoot] : 
+                    [self listForTag:streamid];
+    
+    PLGRStreamPref* streamPref = nil;
+    NSUInteger itemCount = 0;
+    
+    NSMutableArray* sortedList = [NSMutableArray array];
+    NSMutableArray* tempList   = [NSMutableArray arrayWithArray:list];
+    
+    if(streamid == nil)
+    {
+        streamid = @"user/-/state/com.google/root";
+    }
+    
+    // iterate the sorting
+    for (streamPref in _arStreamPrefs) {
+        if([streamPref.streamid isEqualToString:streamid])
+        {
+            break;
+        }
+    }
+    
+    // check if the stream preference is found.
+    if(streamPref != nil)
+    {    
+        itemCount = [streamPref.subscriptionOrdering length] / 8;
+        for(NSUInteger i=0; i<itemCount; i++)
+        {
+            NSString* subItemSortid = [streamPref.subscriptionOrdering substringWithRange:NSMakeRange(8*i, 8)];
+            
+            // Find the item from list
+            for(PLGRSubscriptionItem* subItem in list)
+            {
+                // If found, add it to the sorted list
+                if([subItem.sortid isEqualToString:subItemSortid])
+                {
+                    [sortedList addObject:subItem];
+                    [tempList  removeObject:subItem];
+                }
+            }        
+        }
+    }
+    
+    [sortedList addObjectsFromArray:tempList];
+    
+    return [NSArray arrayWithArray:sortedList];
 }
 
 - (NSUInteger) unreadCountForTag:(NSString*)streamid

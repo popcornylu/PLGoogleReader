@@ -32,7 +32,7 @@
     //lists
     NSArray* _arSubscriptions;
     NSArray* _arTags;
-    NSArray* _arSortings;
+    NSArray* _arStreamPrefs;
     NSArray* _arUnreadCount;    
     
     //data for loading

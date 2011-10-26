@@ -8,6 +8,7 @@
 
 #import "MyGoogleReaderViewController.h"
 #import "CategoryViewController.h"
+#import "ClientLoginViewController.h"
 
 @interface MyGoogleReaderViewController ()
 - (void)updateUI;
@@ -17,7 +18,10 @@
 @synthesize lbEmail;
 @synthesize lbAccessToken;
 @synthesize btnNav;
-@synthesize btnSignInOut;
+@synthesize btnSignInNormal;
+@synthesize btnSignInOauth;
+@synthesize btnSignOut;
+@synthesize btnReload;
 
 #pragma mark NSObject
 - (void)dealloc
@@ -25,8 +29,16 @@
     [lbEmail release];
     [lbAccessToken release];
     [btnNav release];
-    [btnSignInOut release];
+    [btnSignInNormal release];
+    [btnSignInOauth release];
+    [btnSignOut release];
+    [btnReload release];
     [super dealloc];
+}
+
+- (void)awakeFromNib
+{
+    [PLGoogleReader defaultGoogleReader].authType = PLGoogleReaderAuthTypeOAuth;
 }
 
 #pragma mark UIViewController
@@ -48,7 +60,10 @@
     [self setLbEmail:nil];
     [self setLbAccessToken:nil];
     [self setBtnNav:nil];
-    [self setBtnSignInOut:nil];
+    [self setBtnSignInNormal:nil];
+    [self setBtnSignInOauth:nil];
+    [self setBtnSignOut:nil];
+    [self setBtnReload:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -64,28 +79,45 @@
 - (void)updateUI
 {
     PLGoogleReader* googleReader =[PLGoogleReader defaultGoogleReader];
+    BOOL  isSignedIn = [googleReader isSignedIn];
     
     lbEmail.text       = [googleReader userEmail];
     lbAccessToken.text = [googleReader accessToken];
-
-    [btnSignInOut setTitle:[googleReader isSignedIn]?  @"Sign out" : @"Sign in"
-                  forState:UIControlStateNormal];    
     
-    btnNav.hidden = ![[googleReader subscription] isLoaded];
+    btnSignInNormal.enabled = !isSignedIn;
+    btnSignInOauth.enabled  = !isSignedIn;
+    btnSignOut.enabled      = isSignedIn;
+    btnReload.enabled       = isSignedIn;
+
+    btnNav.enabled      = [[googleReader subscription] isLoaded];
 }
 
 #pragma mark Actions
-- (IBAction)signInOut:(id)sender {
-    if([[PLGoogleReader defaultGoogleReader] isSignedIn])
+- (IBAction)signInNormal:(id)sender {       
+    ClientLoginViewController* viewController = [[[ClientLoginViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    viewController.loginBlock = ^(NSString* email, NSString* password)
     {
-        [[PLGoogleReader defaultGoogleReader] signOut];
-        [self updateUI];
-    }
-    else
-    {
-        UIViewController* viewController = [[PLGoogleReader defaultGoogleReader] viewControllerForSignIn:self];    
-        [self.navigationController pushViewController:viewController animated:YES];        
-    }
+        PLGoogleReader* googleReader = [PLGoogleReader defaultGoogleReader];        
+        googleReader.authType = PLGoogleReaderAuthTypeNormal;    
+        [googleReader signInByEmail:email 
+                           password:password 
+                           delegate:self];    
+        [self updateUI];            
+    };
+    
+    [self.navigationController pushViewController:viewController animated:YES];    
+}
+
+- (IBAction)signInOauth:(id)sender {
+    PLGoogleReader* googleReader = [PLGoogleReader defaultGoogleReader];        
+    googleReader.authType = PLGoogleReaderAuthTypeOAuth;
+    UIViewController* viewController = [googleReader viewControllerForSignIn:self];    
+    [self.navigationController pushViewController:viewController animated:YES];            
+    [self updateUI];    
+}
+- (IBAction)signOut:(id)sender {
+    [[PLGoogleReader defaultGoogleReader] signOut];
+    [self updateUI];    
 }
 
 - (IBAction)reload:(id)sender {
@@ -106,6 +138,13 @@
     [self.navigationController popViewControllerAnimated:YES];
     if(error)
     {
+        UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:@"Can't login" 
+                                                             message:[error localizedDescription] 
+                                                            delegate:nil 
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil] 
+                                  autorelease];
+        [alertView show];        
         NSLog(@"error:%@", error);        
     }        
     else

@@ -29,29 +29,40 @@ static NSString* const kPLGRStreamContentsPrefix  = @"http://www.google.com/read
 static NSString* const kPLGRAppName     = @"Google Reader";
 
 @interface PLGoogleReader ()
-@property (retain) GTMOAuthAuthentication* auth;
+@property (retain) GTMOAuthAuthentication* oauth;
+@property (retain) PLGRClientLogin* clientLogin;
 @end
 
 @implementation PLGoogleReader
 
-@synthesize auth = _auth;
+@synthesize authType = _authType;
+@synthesize oauth = _oauth;
+@synthesize clientLogin = _clientLogin;
 
 #pragma mark NSObject
-- (id) init
+- (id)init
 {
     self = [super init];
-    if(self)
-    {                                
-        // Create the OAuth authentication. If the access token can be found in the keychain service.
-        // The access token is loaded as well
-        self.auth = [GTMOAuthViewControllerTouch authForGoogleFromKeychainForName:kPLGRAppName];                        
-    }
+    if(self)        
+    {
+        self.clientLogin = [[[PLGRClientLogin alloc] init] autorelease];
+        self.oauth       = [GTMOAuthViewControllerTouch authForGoogleFromKeychainForName:kPLGRAppName];                                
+    }    
     return self;
 }
 
+- (void)dealloc
+{
+    self.oauth = nil;
+    self.clientLogin = nil;
+    
+    [super dealloc];
+}
+
+
 #pragma mark Public
 - (UIViewController*)viewControllerForSignIn:(id<PLGoogleReaderSignInDelegate>)delegate
-{
+{    
     // Only allow the delegate is not nil
     if(delegate == nil)
     {
@@ -65,6 +76,7 @@ static NSString* const kPLGRAppName     = @"Google Reader";
     }
     
     _delegate = delegate;
+    _authType = PLGoogleReaderAuthTypeOAuth;
     
     // Create the sign in view controller by GTM
     GTMOAuthViewControllerTouch *viewController = 
@@ -85,21 +97,60 @@ static NSString* const kPLGRAppName     = @"Google Reader";
     return viewController;
 }
 
+- (void) signInByEmail:(NSString*)email
+              password:(NSString*)password
+              delegate:(id<PLGoogleReaderSignInDelegate>)delegate
+{    
+    _authType = PLGoogleReaderAuthTypeNormal;    
+    [self.clientLogin loginWithEmail:email 
+                            password:password 
+                            complete:^(NSError *error) 
+    {
+        [delegate googleReaderDidSignIn:self error:error];
+    }];
+}
+
 - (BOOL) isSignedIn
 {
-    return [self.auth canAuthorize];
+    if(self.authType == PLGoogleReaderAuthTypeNormal)
+    {
+        return [self.clientLogin auth] != nil;
+    }
+    else if(self.authType == PLGoogleReaderAuthTypeOAuth)
+    {
+        return [self.oauth canAuthorize];
+    }
+    else
+    {
+        if([self.oauth canAuthorize])
+        {
+            _authType = PLGoogleReaderAuthTypeOAuth;
+            return YES;            
+        }
+        else
+        {
+            return NO;
+        }
+    }    
 }
 
 - (void) signOut
 {
-    // Revoke access token from google auth service
-    [GTMOAuthViewControllerTouch revokeTokenForGoogleAuthentication:self.auth];
-    
-    // Remove the access token from keychain
-    [GTMOAuthViewControllerTouch removeParamsFromKeychainForName:kPLGRAppName];
-    
-    // Reset the authentication object
-    [self.auth reset];
+    if(self.authType == PLGoogleReaderAuthTypeNormal)    
+    {
+        [self.clientLogin logout];
+    }
+    else if(self.authType == PLGoogleReaderAuthTypeOAuth)
+    {
+        // Revoke access token from google auth service
+        [GTMOAuthViewControllerTouch revokeTokenForGoogleAuthentication:self.oauth];
+        
+        // Remove the access token from keychain
+        [GTMOAuthViewControllerTouch removeParamsFromKeychainForName:kPLGRAppName];
+        
+        // Reset the authentication object
+        [self.oauth reset];
+    }
     
     //subscription
     if([_subscription isLoading])
@@ -226,11 +277,11 @@ static NSString* const kPLGRAppName     = @"Google Reader";
                                                    encoding:NSUTF8StringEncoding] autorelease];
             NSLog(@"Signin failed: %@", str);
         }       
-        [self.auth reset];
+        [self.oauth reset];
     } 
     else
     {
-        self.auth = auth;
+        self.oauth = auth;
     }
     
     // Notify to delegate
@@ -248,12 +299,28 @@ static NSString* const kPLGRAppName     = @"Google Reader";
  */
 - (BOOL) authorizeRequest:(NSMutableURLRequest*)urlRequest
 {
-    if(![_auth canAuthorize])
+    if(self.authType == PLGoogleReaderAuthTypeNormal)
+    {
+        if(![_clientLogin auth])
+        {
+            return NO;
+        }
+        
+        return [_clientLogin authorizeRequest:urlRequest];
+    }
+    else if(self.authType == PLGoogleReaderAuthTypeOAuth)
+    {
+        if(![_oauth canAuthorize])
+        {
+            return NO;
+        }
+        
+        return [_oauth authorizeRequest:urlRequest];
+    }
+    else
     {
         return NO;
     }
-    
-    return [_auth authorizeRequest:urlRequest];
 }
 
 /**
@@ -271,12 +338,34 @@ static NSString* const kPLGRAppName     = @"Google Reader";
 
 - (NSString*) accessToken
 {
-    return [_auth accessToken];
+    if(self.authType == PLGoogleReaderAuthTypeNormal)
+    {
+        return [_clientLogin auth];
+    }
+    else if(self.authType == PLGoogleReaderAuthTypeOAuth)
+    {
+        return [_oauth accessToken];
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 - (NSString*) userEmail
 {
-    return [_auth userEmail];
+    if(self.authType == PLGoogleReaderAuthTypeNormal)
+    {
+        return [_clientLogin email];
+    }
+    else if(self.authType == PLGoogleReaderAuthTypeOAuth)
+    {
+        return [_oauth userEmail];
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 #pragma mark Class Public

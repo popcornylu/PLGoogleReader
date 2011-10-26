@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		B219394313AAFA3B00E753DA /* unread.png in Resources */ = {isa = PBXBuildFile; fileRef = B219394213AAFA3B00E753DA /* unread.png */; };
 		B219394513AAFB7900E753DA /* read.png in Resources */ = {isa = PBXBuildFile; fileRef = B219394413AAFB7900E753DA /* read.png */; };
+		B258E5061456B0D100755C42 /* PLGRClientLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = B258E5051456B0D100755C42 /* PLGRClientLogin.m */; };
+		B258E50B1457AF7800755C42 /* ClientLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B258E5091457AF7800755C42 /* ClientLoginViewController.m */; };
+		B258E50C1457AF7800755C42 /* ClientLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B258E50A1457AF7800755C42 /* ClientLoginViewController.xib */; };
 		B262E77013A0A4BD006CCD7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262E76F13A0A4BD006CCD7E /* UIKit.framework */; };
 		B262E77213A0A4BD006CCD7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262E77113A0A4BD006CCD7E /* Foundation.framework */; };
 		B262E77413A0A4BD006CCD7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262E77313A0A4BD006CCD7E /* CoreGraphics.framework */; };
@@ -45,6 +48,11 @@
 /* Begin PBXFileReference section */
 		B219394213AAFA3B00E753DA /* unread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unread.png; sourceTree = "<group>"; };
 		B219394413AAFB7900E753DA /* read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read.png; sourceTree = "<group>"; };
+		B258E5041456B0D100755C42 /* PLGRClientLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLGRClientLogin.h; sourceTree = "<group>"; };
+		B258E5051456B0D100755C42 /* PLGRClientLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLGRClientLogin.m; sourceTree = "<group>"; };
+		B258E5081457AF7800755C42 /* ClientLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientLoginViewController.h; sourceTree = "<group>"; };
+		B258E5091457AF7800755C42 /* ClientLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientLoginViewController.m; sourceTree = "<group>"; };
+		B258E50A1457AF7800755C42 /* ClientLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientLoginViewController.xib; sourceTree = "<group>"; };
 		B262E76B13A0A4BD006CCD7E /* PLGoogleReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLGoogleReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B262E76F13A0A4BD006CCD7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B262E77113A0A4BD006CCD7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -214,6 +222,8 @@
 				B2BA2E9513A6031500CE1ED2 /* PLGRSubscription.m */,
 				B2BA2E9613A6031500CE1ED2 /* PLGRSubscriptionItem.h */,
 				B2BA2E9713A6031500CE1ED2 /* PLGRSubscriptionItem.m */,
+				B258E5041456B0D100755C42 /* PLGRClientLogin.h */,
+				B258E5051456B0D100755C42 /* PLGRClientLogin.m */,
 			);
 			path = PLGoogleReader;
 			sourceTree = "<group>";
@@ -251,7 +261,6 @@
 				B2EF22E113B30D1900AE7714 /* CategoryViewController.m */,
 				B2EF22E213B30D1900AE7714 /* InfoPlist.strings */,
 				B2EF22E413B30D1900AE7714 /* MainWindow.xib */,
-				B2EF22E613B30D1900AE7714 /* MyGoogleReaderViewController.xib */,
 				B2EF22E813B30D1900AE7714 /* FeedEntry.h */,
 				B2EF22E913B30D1900AE7714 /* FeedEntry.m */,
 				B2EF22EA13B30D1900AE7714 /* FeedParser.h */,
@@ -263,6 +272,10 @@
 				B2EF22F113B30D1900AE7714 /* MyGoogleReaderAppDelegate.m */,
 				B2EF22F213B30D1900AE7714 /* MyGoogleReaderViewController.h */,
 				B2EF22F313B30D1900AE7714 /* MyGoogleReaderViewController.m */,
+				B2EF22E613B30D1900AE7714 /* MyGoogleReaderViewController.xib */,
+				B258E5081457AF7800755C42 /* ClientLoginViewController.h */,
+				B258E5091457AF7800755C42 /* ClientLoginViewController.m */,
+				B258E50A1457AF7800755C42 /* ClientLoginViewController.xib */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -320,6 +333,7 @@
 				B2EF22F613B30D1900AE7714 /* InfoPlist.strings in Resources */,
 				B2EF22F713B30D1900AE7714 /* MainWindow.xib in Resources */,
 				B2EF22F813B30D1900AE7714 /* MyGoogleReaderViewController.xib in Resources */,
+				B258E50C1457AF7800755C42 /* ClientLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +366,8 @@
 				B2EF22FC13B30D1900AE7714 /* main.m in Sources */,
 				B2EF22FD13B30D1900AE7714 /* MyGoogleReaderAppDelegate.m in Sources */,
 				B2EF22FE13B30D1900AE7714 /* MyGoogleReaderViewController.m in Sources */,
+				B258E5061456B0D100755C42 /* PLGRClientLogin.m in Sources */,
+				B258E50B1457AF7800755C42 /* ClientLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
