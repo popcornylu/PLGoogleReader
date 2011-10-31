@@ -43,6 +43,8 @@
     PLGRRequest* _requestUnreadCount;
 }
 
+@property (nonatomic, assign) id<PLGRSubscriptionDelegate> delegate;
+
 /**
  * Please use [PLGoogleReader subscription] instead.
  */

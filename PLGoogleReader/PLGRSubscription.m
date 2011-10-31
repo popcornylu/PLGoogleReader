@@ -24,6 +24,7 @@ static NSString* kPLGRAPIToken              =  @"/token";
 
 @implementation PLGRSubscription
 
+@synthesize delegate = _delegate;
 
 /**
  * Please use [PLGoogleReader subscription] instead.
