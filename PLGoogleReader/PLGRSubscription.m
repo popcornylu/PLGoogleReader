@@ -684,6 +684,13 @@ static NSString* kPLGRAPIToken              =  @"/token";
                                       self.isExpended,
                                       self.subscriptionOrdering];
 }
+
+- (void) dealloc
+{
+    self.streamid = nil;
+    self.subscriptionOrdering = nil;
+    [super dealloc];
+}
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -696,6 +703,13 @@ static NSString* kPLGRAPIToken              =  @"/token";
             self.streamid,
             self.count,
             self.newestItemTimestampUsec];
+}
+
+- (void) dealloc
+{
+    self.streamid = nil;
+    self.newestItemTimestampUsec = nil;
+    [super dealloc];
 }
 @end
 

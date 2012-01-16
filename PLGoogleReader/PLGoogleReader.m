@@ -56,6 +56,8 @@ static NSString* const kPLGRAppName     = @"Google Reader";
     self.oauth = nil;
     self.clientLogin = nil;
     
+    [_subscription release];
+    
     [super dealloc];
 }
 

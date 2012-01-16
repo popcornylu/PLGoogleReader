@@ -16,6 +16,17 @@
 @synthesize labels;
 @synthesize firstItemSec;
 
+- (void)dealloc
+{
+    self.streamid = nil;
+    self.title = nil;
+    self.sortid = nil;
+    self.labels = nil;
+    self.firstItemSec = nil;
+    
+    [super dealloc];
+}
+
 - (NSString*)description
 {
     NSMutableString* string = [NSMutableString string]; 
